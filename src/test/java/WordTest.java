@@ -14,7 +14,7 @@ public class WordTest {
   }
 
   @Test
-  public void Word_getsCorrectWord_trumpet() {
+  public void Word_getsUserInputtedWord_trumpet() {
     Word testWord = new Word("trumpet");
     assertEquals("trumpet", testWord.getWord());
   }

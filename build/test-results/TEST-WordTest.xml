@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="WordTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2015-08-21T17:43:30" hostname="Jen-Quiross-MacBook-Pro.local" time="0.003">
+<testsuite name="WordTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2015-08-21T19:16:20" hostname="Jen-Quiross-MacBook-Pro.local" time="0.008">
   <properties/>
-  <testcase name="Word_getsCorrectWord_trumpet" classname="WordTest" time="0.002"/>
+  <testcase name="Word_getsUserInputtedWord_trumpet" classname="WordTest" time="0.006"/>
   <testcase name="newWord_instantiatesCorrectly_true" classname="WordTest" time="0.0"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>

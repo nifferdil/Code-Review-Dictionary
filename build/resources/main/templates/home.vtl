@@ -1,8 +1,20 @@
 <h2 class="well">Create Your Own Dictionary</h2>
 <h3>Enter a word and see its definition.</h3>
 
-<form action='/word'>
+Word(s) entered:
+<ul>
+  #foreach ($word in $words)
+    <li>$word.getWord()</li>
+  #end
+</ul>
+  <br>
+<form action='/word' method="post">
   <div class="form-group">
     <label for="word">Word</label>
     <input id="word" name="word" class="form-control" type="text">
+    <br>
+    <br>
+    <button type="submit">Submit word</button>
+</form>
+    <a href="/">Return to home page</a>
   </div>
