@@ -1,1 +1,8 @@
-<p><h3>Your entered the word $myWord.getWord()</h3></p>
+#if ($word)
+  <h1>$word.getWord()</h1>
+#else
+  <h1>Word not found</h1>
+#end
+
+<a href="/words/new">Add another word</a>
+<a href="/words">View all words</a>

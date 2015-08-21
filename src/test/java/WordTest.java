@@ -4,8 +4,13 @@ import static org.junit.Assert.*;
 
 public class WordTest {
 
-  // @Rule
-  // public ClearRule clearRule = new ClearRule();
+  //public ClearRule clearRule = new ClearRule();
+
+  @ClassRule
+  public static ServerRule server = new ServerRule();
+
+  @Rule
+  public ClearRule clearRule = new ClearRule();
 
   @Test
   public void newWord_instantiatesCorrectly_true() {
