@@ -4,14 +4,13 @@ public class Word {
 	private static ArrayList<Word> instances = new ArrayList<Word>();
 	private String mWord;
 	private int mId;
-	private ArrayList<Definition> mDefinitions;
+	private ArrayList<Definition> mDefinitions = new ArrayList<Definition>();
 
 
 	public Word(String word) {
 		mWord = word;
 		instances.add(this);
     mId = instances.size();
-		mDefinitions = new ArrayList<Definition>();
 	}
 
 	public String getWord() {
@@ -22,17 +21,17 @@ public class Word {
     return mId;
   }
 
-  public static ArrayList<Word> all() {
-    return instances;
-  }
-
 	public ArrayList<Definition> getDefinitions() {
-		return mDefinitions;
+     return mDefinitions;
+ }
+
+  public void addDefinition(Definition def) {
+		 mDefinitions.add(def);
 	}
 
-	public void addDefinition(Definition definition) {
-		mDefinitions.add(definition);
-	}
+  public static ArrayList<Word> all() {
+     return instances;
+     }
 
   public static Word find(int id) {
     try {
