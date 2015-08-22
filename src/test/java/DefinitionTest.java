@@ -1,20 +1,53 @@
-import java.time.LocalDateTime;
 import org.junit.*;
 import static org.junit.Assert.*;
 
 public class DefinitionTest {
 
-	@ClassRule
-	public static ServerRule server = new ServerRule();
+	@Test
+	    public void definition_instantiatesCorrectly_true() {
+	        Definition testDef = new Definition("an instrument");
+	        assertEquals(true, testDef instanceof Definition);
+	    }
 
-	@Rule
-	public ClearRule clearRule = new ClearRule();
+	    @Test
+	    public void word_getsDefinition_correctString() {
+	        Definition testDef = new Definition("an instrument");
+	        assertEquals("an instrument", testDef.getDef());
+	    }
 
-	// @Test
-	// public void volume_determinesTheVolumeOfTheCube_27000() {
-  //   Rectangle testRectangle = new Rectangle(30, 30);
-  //   Cube testCube = new Cube(testRectangle);
-  //   assertEquals(27000, testCube.volume());
-  // }
+	    @Test
+	    public void all_returnsAllInstancesOfDefinition_true() {
+	        Definition def1 = new Definition("an instrument");
+	        Definition def2 = new Definition("a musical instrument");
+	        assertTrue(Definition.all().contains(def1));
+	        assertTrue(Definition.all().contains(def2));
+	    }
+
+	    @Test
+	    public void newId_defsInstantiateWithAnID_true() {
+	        Definition testDef = new Definition("an instrument");
+	        assertEquals(Definition.all().size(), testDef.getId());
+	    }
+
+	    @Test
+	    public void find_returnsDefWithSameId_def2() {
+	        Definition def1 = new Definition("an instrument");
+	        Definition def2 = new Definition("a musical instrument");
+	        assertTrue(Definition.all().contains(def1));
+	        assertTrue(Definition.all().contains(def2));
+	    }
+
+	    @Test
+	    public void find_returnsNullWhenNoDefinitionFound_null() {
+	        assertTrue(Definition.find(999) == null);
+	    }
+
+	    @Test
+	    public void clear_emptiesAllDefsFromArrayList() {
+	        Definition def1 = new Definition("an instrument");
+	        Definition.clear();
+	        assertEquals(Definition.all().size(), 0);
+	    }
+
 
 }

@@ -31,36 +31,68 @@ public class AppTest extends FluentTest {
 
   @Test
   public void wordIsCreatedTest() {
-    goTo("http://localhost:4567/");
-    click("a", withText("Submit word"));
+    goTo("http://localhost:4567/words/new");
     fill("#word").with("trumpet");
     submit(".btn");
-    assertThat(pageSource()).contains("Your word has been saved.");
+    assertThat(pageSource()).contains("Success!");
   }
 
   @Test
-  public void wordDefinitionsFormIsDisplayed() {
-    goTo("http://localhost:4567/categories/new");
-    fill("#name").with("Shopping");
+  public void wordIsDisplayedTest() {
+    goTo("http://localhost:4567/words/new");
+    fill("#word").with("trumpet");
     submit(".btn");
-    click("a", withText("View categories"));
-    click("a", withText("Shopping"));
-    click("a", withText("Add a new task"));
-    assertThat(pageSource()).contains("Add a Task to Shopping");
+    click("a", withText("View all words"));
+    assertThat(pageSource()).contains("trumpet");
   }
 
-@Test
-public void definitionsIsAddedAndDisplayed() {
-    goTo("http://localhost:4567/categories/new");
-    fill("#name").with("Banking");
+  @Test
+  public void definitionIsAddedAndDisplayedTest() {
+    goTo("http://localhost:4567/words/new");
+    fill("#word").with("trumpet");
     submit(".btn");
-    click("a", withText("View categories"));
-    click("a", withText("Banking"));
-    click("a", withText("Add a new task"));
-    fill("#description").with("Deposit paycheck");
+    goTo("http://localhost:4567/words/1/definitions/new");
+    fill("#definition").with("musical instrument");
     submit(".btn");
-    assertThat(pageSource()).contains("Deposit paycheck");
-}
+    assertThat(pageSource()).contains("musical instrument");
+  }
+
+  @Test
+  public void multipleWordsAreDisplayedTest() {
+    goTo("http://localhost:4567/words/new");
+    fill("#word").with("trumpet");
+    submit(".btn");
+    goTo("http://localhost:4567/words/new");
+    fill("#word").with("guitar");
+    submit(".btn");
+    click("a", withText("View all words"));
+    assertThat(pageSource()).contains("trumpet");
+    assertThat(pageSource()).contains("guitar");
+  }
+
+//   @Test
+//   public void wordDefinitionsFormIsDisplayed() {
+//     goTo("http://localhost:4567/categories/new");
+//     fill("#name").with("Shopping");
+//     submit(".btn");
+//     click("a", withText("View categories"));
+//     click("a", withText("Shopping"));
+//     click("a", withText("Add a new task"));
+//     assertThat(pageSource()).contains("Add a Task to Shopping");
+//   }
+//
+// @Test
+// public void definitionsIsAddedAndDisplayed() {
+//     goTo("http://localhost:4567/categories/new");
+//     fill("#name").with("Banking");
+//     submit(".btn");
+//     click("a", withText("View categories"));
+//     click("a", withText("Banking"));
+//     click("a", withText("Add a new task"));
+//     fill("#description").with("Deposit paycheck");
+//     submit(".btn");
+//     assertThat(pageSource()).contains("Deposit paycheck");
+// }
 
 // @Test
 //   public void wordIsDisplayedTest() {
@@ -134,10 +166,5 @@ public void definitionsIsAddedAndDisplayed() {
   //   assertThat(pageSource()).contains("trumpet");
   //   assertThat(pageSource()).contains("guitar");
   // }
-
-
-
-
-
 
 }
