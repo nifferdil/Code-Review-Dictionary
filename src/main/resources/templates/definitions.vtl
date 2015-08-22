@@ -1,0 +1,9 @@
+<h1>All definitions</h1>
+
+<ul>
+#foreach ($definition in $definitions)
+  <li>
+    <a href="/definitions/$definition.getId()">$definition.getDefinition()</a>
+  </li>
+#end
+</ul>

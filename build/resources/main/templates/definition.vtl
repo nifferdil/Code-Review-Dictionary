@@ -1,0 +1,20 @@
+<h3>Here is the definition for this word:</h3>
+
+#foreach($definition in $definitions)
+ <h3>$definition.getDefinition()</a></h3>
+#end
+
+<a href="/definitions/$definition.getId()/definitions/new">Add a new definition</a>
+<a href="/">Return to Main Page</a>
+
+#if ($definition)
+  <h3>$definition.getDefinition()</h3>
+#else
+  <h3>This word has not yet been defined.</h3>
+#end
+
+<hr/>
+
+<a href="/definitions/new">Add another definition</a>
+<br>
+<a href="/definitions">All definitions</a>
