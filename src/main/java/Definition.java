@@ -10,12 +10,12 @@ public class Definition {
     instances.add(this);
     mId = instances.size();
   }
+  
+  public String getDef() {
+    return mDef;
+  }
 
- public String getDef() {
-   return mDef;
- }
-
- public int getId() {
+  public int getId() {
     return mId;
   }
 
